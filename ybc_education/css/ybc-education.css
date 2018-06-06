@@ -1,0 +1,555 @@
+/*styles for the aleph beys chart*/
+@font-face {
+  font-family: "YFbBotanika-Regular";
+  src: url(../YFbBotanika-Regular.ttf) format("truetype");
+}
+
+div.outer {
+  min-width: 310px;
+  overflow: hidden;
+}
+
+div.square {
+  width: 153px;
+  height: 191px;
+  display: inline;
+  float: right;
+  margin: 1px;
+  text-align: center;
+  position: relative;
+}
+
+p.block-letter {
+  font-family: MalagaRegular, RamahuRegular, serif;
+  font-size: 34px;
+  margin: 15px 0px 0px;
+  direction: rtl;
+}
+
+p.script {
+  font-size: 30px;
+  font-family: "YFbBotanika-Regular", serif;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  direction: rtl;
+  font-weight: 700;
+}
+
+p.english {
+  font-size: 17px;
+  font-family: MalagaRegular, RamahuRegular, serif;
+  margin-bottom: 10px;
+  direction: ltr;
+}
+
+p.type {
+  font-size: 17px;
+  font-family: MalagaRegular, RamahuRegular, serif;
+  font-variant: small-caps;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+}
+
+.playing   {
+  box-shadow: 0px 0px 20px #333;
+  z-index: 10;
+  position: absolute;
+}
+
+.accent {
+  font-family: MalagaRegular, RamahuRegular, serif;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.silent    {
+  background: linear-gradient(white 50%, #dadbd8 50%);
+  background-size: 2px 2px;
+}
+
+.silent:hover, .silent.playing {
+  background: url('../images/squarebackground.png'), linear-gradient(white 50%, #dadbd8 50%);
+  background-size: cover, 2px 2px;
+}
+
+.vowel {
+  background-color: #edefe3;
+}
+
+.vowel:hover, .vowel.playing {
+  background: url('../images/squarebackground.png'), #edefe3;
+}
+
+.dipthong {
+  background-color: #d5d9c0;
+}
+
+.dipthong:hover, .dipthong.playing {
+  background: url('../images/squarebackground.png'), #d5d9c0;
+}
+
+.consonant {
+  background-color: #f6d57e;
+}
+
+.consonant:hover, .consonant.playing  {
+  background: url('../images/squarebackground.png'), #f6d57e;
+}
+
+.final {
+  background: linear-gradient(#fdf8e8 50%, /*#f9e6b3*/ #f6d57e 50%);
+  background-size: 2px 2px;
+}
+
+.final:hover, .final.playing {
+  background: url('../images/squarebackground.png'), linear-gradient(#fdf8e8 50%, /*#f9e6b3*/ #f6d57e 50%);
+  background-size: cover, 2px 2px;
+}
+
+.hebrew {
+  background-color: #f9e6b3;
+}
+
+.hebrew:hover, .hebrew.playing {
+  background: url('../images/squarebackground.png'), #f9e6b3;
+}
+
+.consonant-vowel {
+  background: linear-gradient(128deg, #edefe3 50%, #f6d57e 50%);
+  background-size: 153px 191px;
+}
+
+.consonant-vowel:hover, .consonant-vowel.playing {
+  background: url('../images/squarebackground.png'), linear-gradient(128deg, #edefe3 50%, #f6d57e 50%);
+  background-size: cover, 153px 191px;
+}
+
+.playing  {
+  box-shadow: 0px 0px 20px #333;
+  z-index: 10;
+  position: absolute;
+}
+
+div.square .playing {
+  background: url('../images/squarebackground.png'), #f9e6b3;
+}
+
+#khirek-yud-fix {
+  display: block;
+  width: 20px;
+  min-height: 20px;
+  margin-top: 8px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url('../images/khirek-yud.png');
+  background-repeat: no-repeat;
+}
+
+/*styles for drag and drops*/
+div.centerfix {
+  width: 330px;
+  margin: auto;
+}
+
+div.centerfix-inner {
+  width: 240px;
+  margin: auto;
+  position: relative;
+}
+
+.columns {
+  width: 400px;
+  margin: auto;
+}
+
+.columns ul {
+  list-style-type: none;
+  float: left;
+  padding: 0px;
+}
+
+.columns li {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 25px;
+  line-height: 60px;
+  border: 2px solid #dadbd3;
+  border-radius: 3px;
+  list-style-type: none;
+}
+
+.paragraphs-item.paragraphs-item--ybc-education ul {
+  padding: 0;
+}
+
+.prompt {
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.reply {
+  background: url('../images/replyli-background.jpeg');
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  padding: 0;
+  ms-touch-action: none;
+  touch-action: none;
+}
+
+.prompt li {
+  border: 2px dashed #dadbd3;
+  background-image: url('../images/drop-square.jpeg');
+  background-size: cover;
+  list-style-type: none;
+  width: 60px;
+  height: 60px;
+}
+
+.reply li {
+  border: 2px solid #dadbd3;
+  background-color: #edeee6;
+  list-style-type: none;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+}
+
+.background {
+  background-color: red;
+}
+
+.button {
+  width: 300px;
+  margin:auto;
+  clear: both;
+}
+
+.button button {
+  width: 200px;
+  margin: 10px auto 10px auto;
+  color: #1e1c19;
+  background: #AEC10D;
+  padding: .5rem .8rem;
+  font-family: "omnes-pro","Omnes",sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  border: 0px;
+  border-radius: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+}
+
+.checkAnswers {
+  clear: both;
+}
+
+button#reload {
+  background-color: #e4e7d7;
+  color: #65625d;
+  clear: both;
+}
+
+.reply li.yellow {
+  border: 2px solid #edb112;
+  -webkit-box-shadow: 3px 3px 3px 2pxrgba(237,177,18,1);
+  -moz-box-shadow: 3px 3px 3px 2px rgba(237,177,18,1);
+  box-shadow: 3px 3px 3px 2px rgba(237,177,18,1);
+}
+
+.reply li.green {
+  border: 2px solid #aec10d;
+  -webkit-box-shadow: 3px 3px 3px 2px rgba(174,193,13,1);
+  -moz-box-shadow: 3px 3px 3px 2px rgba(174,193,13,1);
+  box-shadow: 3px 3px 3px 2px rgba(174,193,13,1);
+}
+
+.dialog {
+  text-align: center;
+}
+
+/* from jquery ui theme roller*/
+.ui-widget {
+  font-family: "omnes-pro","Omnes",sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.ui-widget .ui-widget {
+  font-size: 1em;
+}
+
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+  font-family: "omnes-pro","Omnes",sans-serif;
+  text-align: center;
+  font-size: 1em;
+}
+
+.ui-widget.ui-widget-content {
+  border: 1px solid #dadbd3;
+}
+
+.ui-widget-content {
+  border: 1px solid #dadbd3;
+  background: #dadbd3;
+  color: #333333;
+}
+
+.ui-widget-content a {
+  color: #333333;
+}
+
+.ui-widget-header {
+  border: 1px solid #dadbd3;
+  background: #dadbd3;
+  color: #333333;
+  font-weight: bold;
+}
+
+.ui-widget-header a {
+  color: #333333;
+}
+
+.ui-dialog-buttonset {
+  text-align: right;
+}
+
+.ui-dialog-titlebar-close {
+  display: none;
+}
+
+.ui-dialog-titlebar-close .ui-button-text {
+  display: none;
+}
+
+/*styles for drag and drops with wider prompts, currently being used for letter names*/
+
+span.letter-sound {
+  font-size: 18px;
+}
+
+.columns ul.letter-name {
+  float:left;
+  padding: 0px;
+  margin-right: 5px;
+}
+
+.columns ul.letter-name li {
+  font-size: 22px;
+  border:0px;
+  border-bottom: 1px solid #ecede9;
+  height: 70px;
+  width: 180px;
+  list-style-type: none;
+  line-height: 20px;
+  margin-bottom: 10px;
+  padding: 10px 0px;
+  vertical-align: center;
+}
+
+.columns ul.letter-name li:last-child {
+  border-bottom: 0px;
+}
+
+.columns ul#rightmarginfix {
+  margin-right: 0px;
+}
+
+.columns ul#leftmarginfix {
+  margin-left: 0px;
+}
+/*styles for the Horizontal drag and drops, currently only being used for Lookalikes*/
+div.horizontal-quiz {
+  width: 325px;
+  margin: auto;
+
+}
+
+div.horizontal-quiz .button {
+  width: 250px;
+  margin: auto;
+  text-align: center;
+}
+
+div.horizontal-quiz .button button {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+div.horizontal-quiz ul {
+  padding: 0px;
+}
+
+div.question-horizontal {
+  width: 320px;
+  padding-top: 40px;
+
+}
+
+div.question-wrapper {
+  width: 316px;
+  margin: auto;
+}
+
+ul.letter {
+  clear: both;
+  width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 30px;
+
+}
+
+.letter li {
+  float: left;
+  list-style-type: none;
+  text-align: center;
+  height: 60px;
+  width: 60px;
+  font-family: MalagaRegular, RamahuRegular, serif;
+  font-size: 25px;
+  background-color: #fff;
+  border: 2px solid #dadbd3;
+  border-radius: 3px;
+  margin-top: 10px;
+  margin-left: 100px;
+  margin-bottom: 10px;
+  line-height: 60px;
+}
+
+.letter li:first-child {
+  margin-left: 38px;
+}
+
+ul.horizontal-prompt {
+  clear: both;
+  display: table;
+  width: 302px;
+  margin: 0px;
+  margin-bottom: 30px;
+  margin-left: 5px;
+}
+
+.horizontal-prompt li {
+  float: left;
+  list-style-type: none;
+  height: 60px;
+  width: 136px;
+  border-radius: 3px;
+  display: table;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: 30px;
+  background-image: url('../images/horizontal-drop.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.horizontal-prompt li:last-child {
+  margin-right: 0px;
+}
+
+div.reply-wrapper {
+  padding-bottom: 30px;
+  width: 300px;
+  border-bottom: 1px solid #ecede9;
+  margin: auto;
+  ms-touch-action: none;
+  touch-action: none;
+}
+
+div.reply-wrapper ul {
+  width: 140px;
+  margin: auto;
+  padding: 0px;
+}
+.long-box-reply {
+  width: 136px;
+  height: 60px;
+  font-family: MalagReg, Ramahu, serif;
+  display: block;
+  background-color: #ecede9;
+  border: 2px solid #dadbd3;
+  border-radius: 3px;
+  clear: both;
+  list-style-type: none;
+  text-align: center;
+  margin-bottom: 10px;
+  line-height: 60px;
+}
+
+.yellow {
+  border: 2px solid #edb112;
+  -webkit-box-shadow: 3px 3px 3px 2pxrgba(237,177,18,1);
+  -moz-box-shadow: 3px 3px 3px 2px rgba(237,177,18,1);
+  box-shadow: 3px 3px 3px 2px rgba(237,177,18,1);
+}
+
+.green {
+  border: 2px solid #aec10d;
+  -webkit-box-shadow: 3px 3px 3px 2px rgba(174,193,13,1);
+  -moz-box-shadow: 3px 3px 3px 2px rgba(174,193,13,1);
+  box-shadow: 3px 3px 3px 2px rgba(174,193,13,1);
+}
+
+/*styles for reading practice*/
+.gloss {
+  color: goldenrod;
+  margin-left: 1em;
+  direction: rtl;
+  font-weight: bold;
+}
+
+.lesson .section {
+  border: 1px solid wheat;
+  padding: 1rem;
+  background: whitesmoke;
+  direction: rtl;
+  margin-bottom: 1rem
+}
+
+.lesson {
+  font-size: 20px;
+  line-height: 1.2em;
+  direction: rtl;
+}
+
+.letter {
+  font-weight: bold;
+  font-size: 32px;
+  margin-left: 1em;
+  direction: rtl;
+}
+
+.phrase {
+  margin-left: 1em;
+  direction: rtl;
+}
+
+.reading-paragraph, h2.center {
+  text-align:center;
+}
+
+/*from jquery themeroller*/
+.ui-tooltip {
+  padding: 8px;
+  position: absolute;
+  z-index: 9999;
+  max-width: 300px;
+  -webkit-box-shadow: 0 0 5px #aaa;
+  box-shadow: 0 0 5px #aaa;
+  background-color: #fff;
+  border-width: 2px;
+}

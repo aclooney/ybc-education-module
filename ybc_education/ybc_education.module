@@ -1,0 +1,352 @@
+<?php
+
+/**
+ * @file
+ * Code for the YBC education feature.
+ */
+
+include_once 'ybc_education.features.inc';
+
+/**
+ * Implements hook_theme_registry_alter().
+ *
+ * We want to force our custom paragraph type to use the template in our module
+ * if no other theme implementation exists. We target the theme suggestion for
+ * the specific paragraph type.
+ *
+ * @see theme()
+ * @see hook_theme_registry_alter()
+ * @see template_preprocess_paragraphs_items()
+ */
+function ybc_education_theme_registry_alter(&$theme_registry) {
+  $module_path = drupal_get_path('module', 'ybc_education');
+
+  if (!isset($theme_registry['paragraphs_item__ybc_education'])) {
+    $theme_registry['paragraphs_item__ybc_education'] = array(
+      'base hook' => 'entity',
+      'render element' => 'elements',
+      'template' => 'ybc-education-paragraph',
+      'type' => 'theme_engine',
+      'path' => $module_path,
+      'theme path' => $module_path,
+      'preprocess functions' => array(),
+      'process functions' => array(),
+    );
+
+  }
+  if (!isset($theme_registry['paragraphs_item__heymarbet_dd_sentences_parent'])) {
+    $theme_registry['paragraphs_item__heymarbet_dd_sentences_parent'] = array(
+      'base hook' => 'entity',
+      'render element' => 'elements',
+      'template' => 'paragraphs-item--heymarbet-dd-sentences-parent',
+      'type' => 'theme_engine',
+      'path' => $module_path,
+      'theme path' => $module_path,
+      'preprocess functions' => array(),
+      'process functions' => array(),
+    );
+  }
+  if (!isset($theme_registry['paragraphs_item__heymarbet_mc_quiz_multilang'])) {
+    $theme_registry['paragraphs_item__heymarbet_mc_quiz_multilang'] = array(
+      'base hook' => 'entity',
+      'render element' => 'elements',
+      'template' => 'paragraphs-item--heymarbet_mc_quiz_multilang',
+      'type' => 'theme_engine',
+      'path' => $module_path,
+      'theme path' => $module_path,
+      'preprocess functions' => array(),
+      'process functions' => array(),
+    );
+  }
+  if (!isset($theme_registry['paragraphs_item__heymarbet_horiz_dragdrop_quiz'])) {
+    $theme_registry['paragraphs_item__heymarbet_horiz_dragdrop_quiz'] = array(
+      'base hook' => 'entity',
+      'render element' => 'elements',
+      'template' => 'paragraphs-item--heymarbet_horiz_dragdrop_quiz',
+      'type' => 'theme_engine',
+      'path' => $module_path,
+      'theme path' => $module_path,
+      'preprocess functions' => array(),
+      'process functions' => array(),
+    );
+  }
+  if (!isset($theme_registry['paragraphs_item__heymarbet_fill_in_the_blank_quiz'])) {
+    $theme_registry['paragraphs_item__heymarbet_fill_in_the_blank_quiz'] = array(
+      'base hook' => 'entity',
+      'render element' => 'elements',
+      'template' => 'paragraphs-item--heymarbet_fill_in_the_blank_quiz',
+      'type' => 'theme_engine',
+      'path' => $module_path,
+      'theme path' => $module_path,
+      'preprocess functions' => array(),
+      'process functions' => array(),
+    );
+  }
+  if (!isset($theme_registry['paragraphs_item__heymarbet_tabbed_text'])) {
+    $theme_registry['paragraphs_item__heymarbet_tabbed_text'] = array(
+      'base hook' => 'entity',
+      'render element' => 'elements',
+      'template' => 'paragraphs-item--heymarbet_tabbed_text',
+      'type' => 'theme_engine',
+      'path' => $module_path,
+      'theme path' => $module_path,
+      'preprocess functions' => array(),
+      'process functions' => array(),
+    );
+  }
+  if (!isset($theme_registry['paragraphs_item__heymarbet_flashcards'])) {
+    $theme_registry['paragraphs_item__heymarbet_flashcards'] = array(
+      'base hook' => 'entity',
+      'render element' => 'elements',
+      'template' => 'paragraphs-item--heymarbet_flashcards',
+      'type' => 'theme_engine',
+      'path' => $module_path,
+      'theme path' => $module_path,
+      'preprocess functions' => array(),
+      'process functions' => array(),
+    );
+  }
+}
+
+/**
+ * Implements hook_preprocess_entity().
+ *
+ * Add attached JavaScript to our paragraph entity.
+ */
+function ybc_education_preprocess_entity(&$variables) {
+  if ($variables['entity_type'] === 'paragraphs_item') {
+    $callback = 'ybc_education_preprocess_paragraphs_item_' . $variables['paragraphs_item']->bundle;
+
+    if (function_exists($callback)) {
+      $callback($variables);
+    }
+
+    $paragraphs_item = $variables['paragraphs_item'];
+    $module_path = drupal_get_path('module', 'ybc_education');
+
+    if ($paragraphs_item->bundle === 'ybc_education') {
+      $variables['content']['#attached']['library'] = array(
+        array('system', 'ui.droppable'),
+        array('system', 'ui.draggable'),
+        array('system', 'ui.dialog'),
+        array('system', 'ui.tooltip'),
+        array('system', 'jquery'),
+        array('system', 'jquery.once'),
+        array('system', 'jquery.ui.touch-punch.min.js'),
+      );
+
+      $variables['content']['#attached']['js'] = array(
+        $module_path . '/js/ybc-education.js',
+      );
+
+      $variables['content']['#attached']['css'] = array(
+        $module_path . '/css/ybc-education.css',
+      );
+
+      $education_exercises = field_get_items('paragraphs_item', $variables['paragraphs_item'], 'field_education_exercise');
+      $variables['education_exercise'] = $education_exercises[0]['value'];
+    }
+
+    $heymarbet_bundles = array(
+      'heymarbet_dd_sentences_parent',
+      'heymarbet_mc_quiz_multilang',
+      'heymarbet_horiz_dragdrop_quiz',
+      'heymarbet_fill_in_the_blank_quiz',
+      'heymarbet_tabbed_text',
+      'heymarbet_flashcards',
+    );
+
+    if (in_array($paragraphs_item->bundle, $heymarbet_bundles)) {
+      drupal_add_library('system', 'ui.droppable');
+      drupal_add_library('system', 'ui.dialog');
+      drupal_add_library('system', 'ui.droppable');
+      drupal_add_library('system', 'ui.draggable');
+      drupal_add_library('system', 'ui.dialog');
+      drupal_add_library('system', 'ui.tooltip');
+      drupal_add_library('system', 'ui.tabs');
+      drupal_add_library('system', 'ui.sortable');
+      drupal_add_library('system', 'effects.highlight');
+      drupal_add_library('system', 'jquery');
+      drupal_add_library('system', 'jquery.once');
+      drupal_add_library('system', 'jquery.ui.touch-punch.min.js');
+
+      drupal_add_js(drupal_get_path('module', 'ybc_education') . '/js/ybc-heymarbet.js');
+      drupal_add_js(drupal_get_path('module', 'ybc_education') . '/jquery.ui.sortable.min.js');
+      drupal_add_css(drupal_get_path('module', 'ybc_education') . '/css/ybc-heymarbet.css');
+    }
+
+    if ($paragraphs_item->bundle === 'heymarbet_fill_in_the_blank_quiz') {
+      // libraries_load('greywyvern');.
+      drupal_add_js(drupal_get_path('module', 'ybc_education') . '/keyboard/keyboard.js');
+      drupal_add_css(drupal_get_path('module', 'ybc_education') . '/keyboard/keyboard.css');
+    }
+  }
+}
+
+/**
+ * Implements hook_ckeditor_plugins().
+ */
+function ybc_education_ckeditor_plugin() {
+  $module_path = drupal_get_path('module', 'ybc_education');
+  $plugins = array();
+
+  $plugins['gloss'] = array(
+    'name'    => 'gloss',
+    'desc'    => t('Plugin for inserting a gloss word with tooltip.'),
+    'path'    => $module_path . '/ckeditor_plugins/gloss/',
+    'default' => 't',
+    'buttons' => array(
+      'Gloss' => array(
+        'label' => 'Insert a Gloss Word!',
+        'icon'  => 'icons/gloss.png',
+      ),
+    ),
+  );
+
+  $plugins['fillinblank'] = array(
+    'name'    => 'fillinblank',
+    'desc'    => t('Plugin for inserting a fill-in-the-blank.'),
+    'path'    => $module_path . '/ckeditor_plugins/fillinblank/',
+    'default' => 't',
+    'buttons' => array(
+      'Fillinblank' => array(
+        'label' => 'Insert a Fill-in-the-blank!',
+        'icon'  => 'icons/fillinblank.png',
+      ),
+    ),
+  );
+
+  return $plugins;
+}
+
+/**
+ * Send field values to templates.
+ */
+function ybc_education_preprocess_paragraphs_item_heymarbet_dd_sentences_parent(&$variables) {
+  $entity = $variables['paragraphs_item'];
+  $children = array();
+
+  if ($child_fields = field_get_items('paragraphs_item', $entity, 'field_hm_dd_sentence_item')) {
+    foreach ($child_fields as $field_hm_dd_sentence_item) {
+      $child_entity = paragraphs_item_revision_load($field_hm_dd_sentence_item['revision_id']);
+      $children[] = entity_metadata_wrapper('paragraphs_item', $child_entity);
+
+    }
+  }
+
+  $variables['children'] = $children;
+}
+
+/**
+ * Implements hook_preprocess_paragraphs_item_TYPE().
+ */
+function ybc_education_preprocess_paragraphs_item_heymarbet_mc_quiz_multilang(&$variables) {
+  $entity = $variables['paragraphs_item'];
+  $children = array();
+
+  if ($child_fields = field_get_items('paragraphs_item', $entity, 'field_ha_mc_question_multilang')) {
+    foreach ($child_fields as $field_ha_mc_question_multilang) {
+      $child_entity = paragraphs_item_revision_load($field_ha_mc_question_multilang['revision_id']);
+      $children[] = entity_metadata_wrapper('paragraphs_item', $child_entity);
+
+    }
+  }
+
+  $variables['children'] = $children;
+}
+
+/**
+ * Implements hook_preprocess_paragraphs_item_TYPE().
+ */
+function ybc_education_preprocess_paragraphs_item_heymarbet_horiz_dragdrop_quiz(&$variables) {
+  $entity = $variables['paragraphs_item'];
+
+  $children = array();
+
+  if ($child_fields = field_get_items('paragraphs_item', $entity, 'field_ha_hz_dd_sentence')) {
+    foreach ($child_fields as $field_ha_hz_dd_sentence) {
+      $child_entity = paragraphs_item_revision_load($field_ha_hz_dd_sentence['revision_id']);
+      $children[] = entity_metadata_wrapper('paragraphs_item', $child_entity);
+
+    }
+  }
+  $variables['children'] = $children;
+}
+
+/**
+ * Implements hook_preprocess_paragraphs_item_TYPE().
+ */
+function ybc_education_preprocess_paragraphs_item_heymarbet_fill_in_the_blank_quiz(&$variables) {
+  $entity = $variables['paragraphs_item'];
+
+  $children = array();
+
+  if ($child_fields = field_get_items('paragraphs_item', $entity, 'field_ha_fi_yiddish_text')) {
+    $child_entity = paragraphs_item_revision_load($child_fields[0]['revision_id']);
+    $children[] = entity_metadata_wrapper('paragraphs_item', $child_entity);
+  }
+
+  if ($child_fields = field_get_items('paragraphs_item', $entity, 'field_ha_fi_translit_text')) {
+    $child_entity = paragraphs_item_revision_load($child_fields[0]['revision_id']);
+    $children[] = entity_metadata_wrapper('paragraphs_item', $child_entity);
+  }
+
+  if ($child_fields = field_get_items('paragraphs_item', $entity, 'field_ha_fi_english_text')) {
+    $child_entity = paragraphs_item_revision_load($child_fields[0]['revision_id']);
+    $children[] = entity_metadata_wrapper('paragraphs_item', $child_entity);
+  }
+
+  $variables['children'] = $children;
+}
+
+/**
+ * Implements hook_preprocess_paragraphs_item_TYPE().
+ */
+function ybc_education_preprocess_paragraphs_item_heymarbet_tabbed_text(&$variables) {
+  $entity = $variables['paragraphs_item'];
+
+  $children = array();
+
+  if ($child_fields = field_get_items('paragraphs_item', $entity, 'field_ha_tabbed_text_yiddish')) {
+    $child_entity = paragraphs_item_revision_load($child_fields[0]['revision_id']);
+    $children[] = entity_metadata_wrapper('paragraphs_item', $child_entity);
+  }
+  else {
+    $children[] = NULL;
+  }
+
+  if ($child_fields = field_get_items('paragraphs_item', $entity, 'field_ha_tabbed_text_translit')) {
+    $child_entity = paragraphs_item_revision_load($child_fields[0]['revision_id']);
+    $children[] = entity_metadata_wrapper('paragraphs_item', $child_entity);
+  }
+  else {
+    $children[] = NULL;
+  }
+  if ($child_fields = field_get_items('paragraphs_item', $entity, 'field_ha_tabbed_text_english')) {
+    $child_entity = paragraphs_item_revision_load($child_fields[0]['revision_id']);
+    $children[] = entity_metadata_wrapper('paragraphs_item', $child_entity);
+  }
+  else {
+    $children[] = NULL;
+  }
+
+  $variables['children'] = $children;
+}
+
+/**
+ * Implements hook_preprocess_paragraphs_item_TYPE().
+ */
+function ybc_education_preprocess_paragraphs_item_heymarbet_flashcards(&$variables) {
+  $entity = $variables['paragraphs_item'];
+  $children = array();
+
+  if ($child_fields = field_get_items('paragraphs_item', $entity, 'field_ha_flashcard')) {
+    foreach ($child_fields as $field_ha_flashcard) {
+      $child_entity = paragraphs_item_revision_load($field_ha_flashcard['revision_id']);
+      $children[] = entity_metadata_wrapper('paragraphs_item', $child_entity);
+
+    }
+  }
+
+  $variables['children'] = $children;
+}

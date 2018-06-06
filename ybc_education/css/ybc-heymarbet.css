@@ -1,0 +1,437 @@
+/*********
+**	ALL
+**********/
+/*imgs tabs and gloss*/
+img.rtl_img {
+  max-height: 15em;
+  max-width: 15em;
+  float: left;
+  padding: 0 !important;
+  margin: 0 .05em !important;
+}
+
+img.ltr_img {
+  max-height: 15em;
+  max-width: 15em;
+  float: right;
+  padding: 0 !important;
+  margin: 0 .05em !important;
+}
+
+#tabs, #q_lang_tabs {
+  margin: 1.5% 0;
+}
+
+#tabs a {
+  border-width: 0;
+}
+
+#tabs.ui-widget-content, #q_lang_tabs.ui-widget-content {
+  background-color: white !important;
+
+}
+
+#antabs ul.ui-tabs-nav {
+  font-size: .8em;
+  background: none;
+  border: none;
+}
+
+#antabs {
+  border: none;
+}
+
+#antabs div {
+  border-top: 4px solid grey;
+}
+
+.gloss {
+  color: #cc8b00;
+}
+
+/*layout*/
+#yidquiz li {
+  list-style: none;
+}
+
+.columns {
+  width: 100%;
+  margin: auto;
+}
+
+.columns.wider {
+  width: 80%;
+}
+
+/*text formating*/
+.yiddish *, .yiddish {
+  direction: rtl;
+  font-family: 'MalagaRegular', 'RamahuRegular', serif;
+}
+
+.not_yiddish {
+  direction: ltr;
+}
+
+.song {
+  font-family: 'MalagaRegular', 'RamahuRegular', serif;
+  line-height: 1.5em;
+  text-align: initial;
+}
+
+.quiz_yiddish {
+  /*	display: none; */
+  font-family: serif !important;
+  direction: rtl;
+}
+
+.quiz_english {
+  display: none;
+}
+
+.quiz_transliteration {
+  display: none;
+}
+
+.acknowledgment {
+  font-style: italic;
+  color: grey;
+}
+
+/*non-text elements*/
+.button button {
+  width: 200px;
+  margin: 10px auto 10px auto;
+  color: #1e1c19;
+  background: #AEC10D;
+  padding: .5rem .8rem;
+  font-family: "omnes-pro", "Omnes", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  border: 0;
+  border-radius: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+  clear: both;
+}
+
+/*widget settings*/
+.ui-dialog-buttonset {
+  text-align: right;
+}
+
+.ui-dialog-titlebar-close {
+  display: none;
+}
+
+.dialog {
+  text-align: center;
+  font-family: "omnes-pro", "Omnes", sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.ui-widget-content {
+  border: 1px solid #dadbd3;
+  background: #dadbd3;
+  color: #333333;
+}
+
+.ui-widget-content a {
+  color: #333333;
+}
+
+.ui-widget-header {
+  border: 1px solid #dadbd3;
+  background: #dadbd3;
+  color: #333333;
+  font-weight: bold;
+}
+
+.ui-widget-header a {
+  color: #333333;
+}
+
+.ui-state-highlight {
+  background: url('../images/horizontal-drop.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.instructions span.right_color {
+  color: #aec10d;
+}
+
+.instructions span.wrong_color {
+  color: #edb112;
+}
+
+.instructions span.iffy_color {
+  color: #358185;
+}
+
+.instructions {
+  margin-top: 7%;
+  border: 2px solid #dadbd3;
+  border-radius: 3px;
+  padding: 3%;
+  text-align: center;
+}
+
+/*****END OF ALL*****/
+
+/**********************
+**	FILL IN THE BLANK
+***********************/
+input.blank {
+  border: 2px solid #dadbd3;
+  border-bottom: 1px solid black;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #edeee6;
+}
+
+input.blank.wrong_color,
+.reply_hrz_adj li.wrong_color,
+.reply_adjustable li.wrong_color,
+.question label.ui-button.wrong_color {
+  border: 2px solid #edb112;
+  -webkit-box-shadow: 2px 2px 3px 1px rgba(237, 177, 18, 1);
+  -moz-box-shadow: 2px 2px 3px 1px rgba(237, 177, 18, 1);
+  box-shadow: 2px 2px 3px 1px rgba(237, 177, 18, 1);
+}
+
+input.blank.iffy_color,
+.reply_hrz_adj li.iffy_color,
+.reply_adjustable li.iffy_color,
+.question label.ui-button.iffy_color {
+  border: 2px solid #358185;
+  -webkit-box-shadow: 2px 2px 3px 1px rgba(53, 129, 133, 1);
+  -moz-box-shadow: 2px 2px 3px 1px rgba(53, 129, 133, 1);
+  box-shadow: 2px 2px 3px 1px rgba(53, 129, 133, 1);
+}
+
+input.blank.selected_color,
+.reply_hrz_adj li.selected_color,
+.reply_adjustable li.selected_color,
+.lang_buts input[type=radio]:checked + label,
+.question label.ui-button.ui-state-active {
+  border: 2px solid #65625d;
+  /*
+  -webkit-box-shadow: 2px 2px 3px 1px rgba(101,98,93, 1);
+  -moz-box-shadow: 2px 2px 3px 1px rgba(101,98,93, 1);
+  box-shadow: 2px 2px 3px 1px rgba(101,98,93, 1);
+  */
+}
+
+input.blank.right_color,
+.reply_hrz_adj li.right_color,
+.reply_adjustable li.right_color,
+.question label.ui-button.right_color {
+  border: 2px solid #aec10d;
+  -webkit-box-shadow: 2px 2px 3px 1px rgba(174, 193, 13, 1);
+  -moz-box-shadow: 2px 2px 3px 1px rgba(174, 193, 13, 1);
+  box-shadow: 2px 2px 3px 1px rgba(174, 193, 13, 1);
+}
+
+/*****FILL IN THE BLANK*****/
+
+/****************************
+**	HORZ D&D EXCERCISES
+****************************/
+.sortable {
+  touch-action: none;
+  ms-touch-action: none;
+}
+
+.reply_hrz_adj {
+  float: left;
+}
+
+.reply_hrz_adj li {
+  border: 2px solid #dadbd3;
+  background-color: #edeee6;
+  list-style-type: none;
+  margin: 15px 3px;
+  padding: 7px;
+  float: left;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 23px;
+}
+
+.reply_hrz_adj.yiddish {
+  float: right;
+  direction: rtl;
+}
+
+.reply_hrz_adj.yiddish li {
+  float: right;
+  direction: rtl;
+}
+
+ul.reply_hrz_adj, .paragraphs-content ul.reply_hrz_adj {
+  clear: both;
+  padding: 1.5% 0;
+}
+
+/*****END OF HORZ D&D*****/
+
+/****************************
+**	  D&D EXCERCISES
+****************************/
+.reply_adjustable li {
+  border: 2px solid #dadbd3;
+  background-color: #edeee6;
+  list-style-type: none;
+  margin-bottom: 15px;
+  width: 100%;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 24px;
+  line-height: 1.5em;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+@media only screen and (max-width: 500px) {
+  .reply_adjustable li {
+    width: 80%;
+    font-size: 100%;
+    line-height: 1.5em;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+ul.reply_adjustable, .paragraphs-content ul.reply_adjustable {
+  padding: 1.5% 0;
+}
+
+/*****END OF D&D*****/
+
+/****************************
+**	  MC EXCERCISES
+****************************/
+ul.question label.ui-button {
+  width: 50%;
+  margin: .4em auto;
+  display: block;
+  border: 2px solid #dadbd3;
+  border-radius: 3px;
+  background: #edeee6;
+}
+
+ul.question {
+  margin-bottom: 3em;
+}
+
+#yidquiz .question {
+  padding: 0;
+  margin: auto;
+}
+
+#yidquiz h3 {
+  text-align: center;
+}
+
+.lang_buts legend {
+  /*background-color: #EDB112;
+  */
+  font-family: 'MalagaRegular', 'RamahuRegular', serif;
+  text-align: center;
+  width: 100%;
+  margin: 5px auto;
+  padding: 0;
+  border-radius: 3px;
+}
+
+.lang_buts fieldset {
+  width: 90%;
+  text-align: center;
+  margin: 5px auto;
+  border: none;
+}
+
+.lang_buts fieldset div {
+  margin: 2px auto;
+  width: 100%;
+}
+
+.lang_buts fieldset label {
+  text-align: center;
+  padding: 2% 6%;
+  display: inline-block;
+  margin: 1px;
+  border: 2px solid #dadbd3;
+  border-radius: 3px;
+  background: #edeee6;
+}
+
+.lang_buts fieldset input {
+  visibility: hidden;
+  position: absolute;
+}
+
+/*****END OF MC*****/
+
+/****************************
+**	  FLASHCARDS
+****************************/
+.card {
+  min-width: 200px;
+  min-height: 100px;
+  width: 350px;
+  height: 225px;
+
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #dadbd3;
+  background-color: #edeee6;
+
+  border-radius: 25px;
+  font-family: 'MalagaRegular', 'RamahuRegular', serif;
+}
+
+.front.fc_image, .back.fc_image {
+  width: 75%;
+  height: 75%;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.card_info .text {
+  width: 90%;
+  margin: auto;
+}
+
+.front, .back {
+  width: 90%;
+  text-align: center;
+  overflow-wrap: break-word;
+  display: none;
+}
+
+.yiddish *, .yiddish {
+  direction: rtl;
+}
+
+.current {
+  display: block;
+}
+
+button.fc_next, button.fc_prev {
+  width: 100px;
+  display: inline;
+}
+
+/*****END OF FLASHCARDS*****/
+
