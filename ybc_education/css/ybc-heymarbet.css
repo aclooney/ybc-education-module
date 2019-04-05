@@ -428,10 +428,54 @@ ul.question {
   display: block;
 }
 
-button.fc_next, button.fc_prev {
+button.fc_next, button.fc_prev, button.im_next, button.im_prev {
   width: 100px;
   display: inline;
 }
 
 /*****END OF FLASHCARDS*****/
 
+/****************************
+**	  IMAGE MAPS
+****************************/
+.im_prev[disabled], .im_next[disabled] {
+  opacity: .5;
+}
+img.image_map {
+  display: inline-block;
+  width: 100% !important;
+  height: 100% !important;
+}
+.image_map_frame {
+  border: 2px solid #dadbd3;
+  margin: 7px auto;
+  background-color: white;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.image_map {
+  margin: auto;
+}
+h3.image_map_caption {
+	text-align: center;
+	margin: 10px auto;
+	width: 100%;
+	height: 40px;
+}
+div.image_map_caption {
+	border: 2px solid #eeb211;
+	width: 90%;
+	height: 60px;
+	margin: 7px auto;
+	padding: 5px;
+}
+.heymarbet_map_area {
+	cursor:pointer;
+}
+.custom-hover {
+  fill:#eeb211 !important;
+  opacity:.5 !important;
+}
+/*****END OF IMAGE MAPS*****/

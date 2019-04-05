@@ -106,6 +106,18 @@ function ybc_education_theme_registry_alter(&$theme_registry) {
       'process functions' => array(),
     );
   }
+  if (!isset($theme_registry['paragraphs_item__heymarbet_image_map'])) {
+    $theme_registry['paragraphs_item__heymarbet_image_map'] = array(
+      'base hook' => 'entity',
+      'render element' => 'elements',
+      'template' => 'paragraphs-item--heymarbet_image_map',
+      'type' => 'theme_engine',
+      'path' => $module_path,
+      'theme path' => $module_path,
+      'preprocess functions' => array(),
+      'process functions' => array(),
+    );
+  }
 }
 
 /**
@@ -154,6 +166,7 @@ function ybc_education_preprocess_entity(&$variables) {
       'heymarbet_fill_in_the_blank_quiz',
       'heymarbet_tabbed_text',
       'heymarbet_flashcards',
+      'heymarbet_image_map'
     );
 
     if (in_array($paragraphs_item->bundle, $heymarbet_bundles)) {
@@ -179,6 +192,10 @@ function ybc_education_preprocess_entity(&$variables) {
       // libraries_load('greywyvern');.
       drupal_add_js(drupal_get_path('module', 'ybc_education') . '/keyboard/keyboard.js');
       drupal_add_css(drupal_get_path('module', 'ybc_education') . '/keyboard/keyboard.css');
+    }
+    if ($paragraphs_item->bundle === 'heymarbet_image_map') {
+      drupal_add_js(drupal_get_path('module', 'ybc_education') . '/js/jquery.mapify.js');
+      drupal_add_css(drupal_get_path('module', 'ybc_education') . '/css/jquery.mapify.css');
     }
   }
 }
@@ -348,5 +365,22 @@ function ybc_education_preprocess_paragraphs_item_heymarbet_flashcards(&$variabl
     }
   }
 
+  $variables['children'] = $children;
+}
+
+/**
+ * Implements hook_preprocess_paragraphs_item_TYPE().
+ */
+function ybc_education_preprocess_paragraphs_item_heymarbet_image_map(&$variables) {
+  $entity = $variables['paragraphs_item'];
+  $children = array();
+
+  if ($child_fields = field_get_items('paragraphs_item', $entity, 'field_ha_im_image_area')) {
+    foreach ($child_fields as $field_ha_im_image_area) {
+      $child_entity = paragraphs_item_revision_load($field_ha_im_image_area['revision_id']);
+      $children[] = entity_metadata_wrapper('paragraphs_item', $child_entity);
+
+    }
+  }
   $variables['children'] = $children;
 }

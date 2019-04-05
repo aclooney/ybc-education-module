@@ -26,8 +26,8 @@
  * @see template_process()
  */
 ?>
-<h4>Click the flashcard to flip it. Use the "next" and "back" buttons to see the
-  other cards.</h4>
+<div class="instructions">Click the flashcard to flip it. Use the "next" and "back" buttons to see the
+  other cards.</div>
 
 <div class="card" id="card">
   <div class="card_info front current" id="card_info_front">
