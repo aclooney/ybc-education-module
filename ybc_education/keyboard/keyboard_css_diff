@@ -1,0 +1,13 @@
+#keyboardInputMaster {
+  position:absolute;
+  margin:0px;
+} 
+.keyboardInputInitiator {
+  margin:0px 3px;
+  vertical-align:middle;
+  cursor:pointer;
+  /*display: inline-block;*/
+}
+.fillintheblank a.keyboardInputInitiator {
+  border-width:0;
+}

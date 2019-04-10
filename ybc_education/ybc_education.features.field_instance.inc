@@ -1218,6 +1218,593 @@ function ybc_education_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'paragraphs_item-heymarbet_image_map-field_ha_im_image'.
+  $field_instances['paragraphs_item-heymarbet_image_map-field_ha_im_image'] = array(
+    'bundle' => 'heymarbet_image_map',
+    'deleted' => 0,
+    'description' => 'This is the image for the image map, to be clicked upon by the user. ',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_ha_im_image',
+    'label' => 'HA IM Image',
+    'required' => 1,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'public' => 'public',
+          'soundcloud' => 0,
+          'vimeo' => 0,
+          'youtube' => 0,
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'media_internet' => 0,
+          'upload' => 0,
+        ),
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-heymarbet_image_map-field_ha_im_image_area'.
+  $field_instances['paragraphs_item-heymarbet_image_map-field_ha_im_image_area'] = array(
+    'bundle' => 'heymarbet_image_map',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Add a mapped area on this image.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'paragraphs',
+        'settings' => array(
+          'view_mode' => 'full',
+        ),
+        'type' => 'paragraphs_view',
+        'weight' => 1,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_ha_im_image_area',
+    'label' => 'HA IM Image Area',
+    'required' => 0,
+    'settings' => array(
+      'add_mode' => 'select',
+      'allowed_bundles' => array(
+        'button_paragraph' => -1,
+        'call_to_action_paragraph_wide' => -1,
+        'embedded_media' => -1,
+        'heymarbet_dd_sentences_child' => -1,
+        'heymarbet_dd_sentences_parent' => -1,
+        'heymarbet_fill_in_the_blank_quiz' => -1,
+        'heymarbet_flashcard' => -1,
+        'heymarbet_flashcards' => -1,
+        'heymarbet_horiz_dragdrop_quiz' => -1,
+        'heymarbet_horiz_dragdrop_sentenc' => -1,
+        'heymarbet_image_map' => -1,
+        'heymarbet_image_map_area' => 'heymarbet_image_map_area',
+        'heymarbet_mc_answer_multilang' => -1,
+        'heymarbet_mc_question_multilang' => -1,
+        'heymarbet_mc_quiz_multilang' => -1,
+        'heymarbet_tabbed_text' => -1,
+        'heymarbet_tabbed_text_entry' => -1,
+        'homepage_element_focus' => -1,
+        'homepage_element_image' => -1,
+        'homepage_element_text' => -1,
+        'homepage_element_video' => -1,
+        'ia_audio' => -1,
+        'ia_video' => -1,
+        'image' => -1,
+        'image_gallery' => -1,
+        'quote' => -1,
+        'slide' => -1,
+        'slideshow' => -1,
+        'soundcloud_audio_player' => -1,
+        'splash_block_image_and_button' => -1,
+        'splash_block_text_and_image' => -1,
+        'text' => -1,
+        'text_bilingual' => -1,
+        'ybc_education' => -1,
+      ),
+      'bundle_weights' => array(
+        'button_paragraph' => 2,
+        'call_to_action_paragraph_wide' => 3,
+        'embedded_media' => 4,
+        'heymarbet_dd_sentences_child' => 5,
+        'heymarbet_dd_sentences_parent' => 6,
+        'heymarbet_fill_in_the_blank_quiz' => 7,
+        'heymarbet_flashcard' => 8,
+        'heymarbet_flashcards' => 9,
+        'heymarbet_horiz_dragdrop_quiz' => 10,
+        'heymarbet_horiz_dragdrop_sentenc' => 11,
+        'heymarbet_image_map' => 12,
+        'heymarbet_image_map_area' => 13,
+        'heymarbet_mc_answer_multilang' => 14,
+        'heymarbet_mc_question_multilang' => 15,
+        'heymarbet_mc_quiz_multilang' => 16,
+        'heymarbet_tabbed_text' => 17,
+        'heymarbet_tabbed_text_entry' => 18,
+        'homepage_element_focus' => 19,
+        'homepage_element_image' => 20,
+        'homepage_element_text' => 21,
+        'homepage_element_video' => 22,
+        'ia_audio' => 23,
+        'ia_video' => 24,
+        'image' => 25,
+        'image_gallery' => 26,
+        'quote' => 27,
+        'slide' => 28,
+        'slideshow' => 29,
+        'soundcloud_audio_player' => 30,
+        'splash_block_image_and_button' => 31,
+        'splash_block_text_and_image' => 32,
+        'text' => 33,
+        'text_bilingual' => 34,
+        'ybc_education' => 35,
+      ),
+      'default_edit_mode' => 'open',
+      'title' => 'Image map area',
+      'title_multiple' => 'Image map areas',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'paragraphs',
+      'settings' => array(),
+      'type' => 'paragraphs_embed',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-heymarbet_image_map-field_ha_im_image_mode'.
+  $field_instances['paragraphs_item-heymarbet_image_map-field_ha_im_image_mode'] = array(
+    'bundle' => 'heymarbet_image_map',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Leave unchecked if this is an image map for presentation. Check the box if this is an image map for a quiz. ',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 2,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_ha_im_image_mode',
+    'label' => 'HA IM Image Mode',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-heymarbet_image_map_area-field_ha_im_image_area_audio'.
+  $field_instances['paragraphs_item-heymarbet_image_map_area-field_ha_im_image_area_audio'] = array(
+    'bundle' => 'heymarbet_image_map_area',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'The URL or URI of the audio file to be played when this area is clicked.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_ha_im_image_area_audio',
+    'label' => 'HA IM Image Area Audio',
+    'required' => 0,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'editor_html' => 'editor_html',
+          'php_code' => 'php_code',
+          'plain_text' => 'plain_text',
+          'simple_html' => 'simple_html',
+          'simple_italics' => 'simple_italics',
+          'slide_description' => 'slide_description',
+          'ybc_education_html' => 'ybc_education_html',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'editor_html' => array(
+              'weight' => 0,
+            ),
+            'php_code' => array(
+              'weight' => -10,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+            'simple_html' => array(
+              'weight' => 0,
+            ),
+            'simple_italics' => array(
+              'weight' => 0,
+            ),
+            'slide_description' => array(
+              'weight' => 0,
+            ),
+            'ybc_education_html' => array(
+              'weight' => 0,
+            ),
+          ),
+        ),
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-heymarbet_image_map_area-field_ha_im_image_area_coordinat'.
+  $field_instances['paragraphs_item-heymarbet_image_map_area-field_ha_im_image_area_coordinat'] = array(
+    'bundle' => 'heymarbet_image_map_area',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Insert the coordinates of the area to be mapped, each coordinate separated by a comma. ',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_ha_im_image_area_coordinat',
+    'label' => 'HA IM Image Area Coordinates',
+    'required' => 1,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'editor_html' => 'editor_html',
+          'php_code' => 'php_code',
+          'plain_text' => 'plain_text',
+          'simple_html' => 'simple_html',
+          'simple_italics' => 'simple_italics',
+          'slide_description' => 'slide_description',
+          'ybc_education_html' => 'ybc_education_html',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'editor_html' => array(
+              'weight' => 0,
+            ),
+            'php_code' => array(
+              'weight' => -10,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+            'simple_html' => array(
+              'weight' => 0,
+            ),
+            'simple_italics' => array(
+              'weight' => 0,
+            ),
+            'slide_description' => array(
+              'weight' => 0,
+            ),
+            'ybc_education_html' => array(
+              'weight' => 0,
+            ),
+          ),
+        ),
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-heymarbet_image_map_area-field_ha_im_image_area_title'.
+  $field_instances['paragraphs_item-heymarbet_image_map_area-field_ha_im_image_area_title'] = array(
+    'bundle' => 'heymarbet_image_map_area',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'The title for this mapped area. It will be displayed to the user when the area is clicked.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_ha_im_image_area_title',
+    'label' => 'HA IM Image Area Title',
+    'required' => 1,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'editor_html' => 'editor_html',
+          'php_code' => 'php_code',
+          'plain_text' => 'plain_text',
+          'simple_html' => 'simple_html',
+          'simple_italics' => 'simple_italics',
+          'slide_description' => 'slide_description',
+          'ybc_education_html' => 'ybc_education_html',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'editor_html' => array(
+              'weight' => 0,
+            ),
+            'php_code' => array(
+              'weight' => -10,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+            'simple_html' => array(
+              'weight' => 0,
+            ),
+            'simple_italics' => array(
+              'weight' => 0,
+            ),
+            'slide_description' => array(
+              'weight' => 0,
+            ),
+            'ybc_education_html' => array(
+              'weight' => 0,
+            ),
+          ),
+        ),
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-heymarbet_image_map_area-field_ha_im_image_area_type'.
+  $field_instances['paragraphs_item-heymarbet_image_map_area-field_ha_im_image_area_type'] = array(
+    'bundle' => 'heymarbet_image_map_area',
+    'default_value' => array(
+      0 => array(
+        'value' => 'poly',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Choose what shape you wish to map on the image. ',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_ha_im_image_area_type',
+    'label' => 'HA IM Image Area Type',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'paragraphs_item-heymarbet_image_map_area-field_ha_im_image_question'.
+  $field_instances['paragraphs_item-heymarbet_image_map_area-field_ha_im_image_question'] = array(
+    'bundle' => 'heymarbet_image_map_area',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'If this is a quiz-format image map, enter a question that would prompt the user to click this area.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+      'paragraphs_editor_preview' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'paragraphs_item',
+    'field_name' => 'field_ha_im_image_question',
+    'label' => 'HA IM Image Area Question',
+    'required' => 0,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'editor_html' => 'editor_html',
+          'php_code' => 'php_code',
+          'plain_text' => 'plain_text',
+          'simple_html' => 'simple_html',
+          'simple_italics' => 'simple_italics',
+          'slide_description' => 'slide_description',
+          'ybc_education_html' => 'ybc_education_html',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'editor_html' => array(
+              'weight' => 0,
+            ),
+            'php_code' => array(
+              'weight' => -10,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+            'simple_html' => array(
+              'weight' => 0,
+            ),
+            'simple_italics' => array(
+              'weight' => 0,
+            ),
+            'slide_description' => array(
+              'weight' => 0,
+            ),
+            'ybc_education_html' => array(
+              'weight' => 0,
+            ),
+          ),
+        ),
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
   // 'paragraphs_item-heymarbet_mc_answer_multilang-field_ha_mc_answer_is_correct_ml'.
   $field_instances['paragraphs_item-heymarbet_mc_answer_multilang-field_ha_mc_answer_is_correct_ml'] = array(
     'bundle' => 'heymarbet_mc_answer_multilang',
@@ -2541,11 +3128,13 @@ Each acknowledgement in its own text-field please. ',
   // Translatables
   // Included for use with string extractors like potx.
   t('Add a flashcard to this set.');
+  t('Add a mapped area on this image.');
   t('Add any number of horizontal drag and drop sentences');
   t('Add any number of multi-lingual questions to your quiz');
   t('Add as many multi-lingual answer choices as you wish.');
   t('Check the box if this is the correct answer. Leave it unchecked if it is incorrect.');
   t('Check the box if this sentence is in Yiddish, leave it unchecked if it is in English or transliteration.');
+  t('Choose what shape you wish to map on the image. ');
   t('Drag and drop quiz');
   t('Education Exercise');
   t('Enter each word in the sentence in its own textbox, in the correct order.');
@@ -2562,6 +3151,14 @@ Each acknowledgement in its own text-field please. ');
   t('HA Horiz DD Sentence');
   t('HA Horiz DD Words');
   t('HA Horiz DD isYid');
+  t('HA IM Image');
+  t('HA IM Image Area');
+  t('HA IM Image Area Audio');
+  t('HA IM Image Area Coordinates');
+  t('HA IM Image Area Question');
+  t('HA IM Image Area Title');
+  t('HA IM Image Area Type');
+  t('HA IM Image Mode');
   t('HA MC AnsChoices MultiLang');
   t('HA MC Answer Is Correct Multi Lang');
   t('HA MC Eng Answer Choice');
@@ -2577,12 +3174,16 @@ Each acknowledgement in its own text-field please. ');
   t('HA Tabbed Text Transliterated');
   t('HA Tabbed Text Yiddish');
   t('HA Tabbed Title');
+  t('If this is a quiz-format image map, enter a question that would prompt the user to click this area.');
+  t('Insert the coordinates of the area to be mapped, each coordinate separated by a comma. ');
+  t('Leave unchecked if this is an image map for presentation. Check the box if this is an image map for a quiz. ');
   t('Order Value (1 for first, 2 for 2nd...)');
   t('Sentence');
   t('The English Text. Feel free to omit any language (and transliteration).');
   t('The English text. Feel free to omit any language (and transliteration).');
   t('The English version of the question');
   t('The English version of this answer choice');
+  t('The URL or URI of the audio file to be played when this area is clicked.');
   t('The Yiddish text. Feel free to omit any language (and transliteration).');
   t('The Yiddish version of the question');
   t('The Yiddish version of this answer choice');
@@ -2590,10 +3191,12 @@ Each acknowledgement in its own text-field please. ');
   t('The text to be displayed don the back of the flashcard. Leave empty if no text is desired.');
   t('The text to be displayed don the front of the flashcard. Leave empty if no text is desired.');
   t('The text. Use the rightmost icons in the editor toolbar to add gloss words (words, when hovered, display their translation) and fill-in-the-blanks.');
+  t('The title for this mapped area. It will be displayed to the user when the area is clicked.');
   t('The title of the text');
   t('The transliterated text. Feel free to omit any language (and transliteration).');
   t('The transliterated version of this answer choice');
   t('The transliterated version of this question prompt');
+  t('This is the image for the image map, to be clicked upon by the user. ');
 
   return $field_instances;
 }

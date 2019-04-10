@@ -44,6 +44,16 @@ function ybc_education_paragraphs_info() {
       'bundle' => 'heymarbet_horiz_dragdrop_sentenc',
       'locked' => '1',
     ),
+    'heymarbet_image_map' => array(
+      'name' => 'Heymarbet Image Map',
+      'bundle' => 'heymarbet_image_map',
+      'locked' => '1',
+    ),
+    'heymarbet_image_map_area' => array(
+      'name' => 'Heymarbet Image Map Area',
+      'bundle' => 'heymarbet_image_map_area',
+      'locked' => '1',
+    ),
     'heymarbet_mc_answer_multilang' => array(
       'name' => 'Heymarbet MC Answer MultiLang',
       'bundle' => 'heymarbet_mc_answer_multilang',

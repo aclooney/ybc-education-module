@@ -117,6 +117,40 @@
     /**
      * END OF ON-READY: MC.
      */
+     /**
+     * ON-READY:  IMAGE MAPS.
+     */
+   // $('.image_map2, .image_map').maphilight();
+    //$('img[usemap]').rwdImageMaps();
+    $('.image_map').mapify({
+      hoverClass: "custom-hover",
+      popOver: {
+        content: function(zone){ 
+          if (im_is_quiz) {
+            var answer = image_map_questions[im_index].a;
+ 	        if (zone.attr("data-title") == answer) {
+ 	          return "Correct! \n<strong>" + answer + "</strong>";
+ 	        } else {
+ 	          return "Sorry, that's not right.\nKeep trying!";
+ 	        }
+          } else {
+            return "<strong>"+zone.attr("data-title")+"</strong>";
+          }
+        },
+        delay: 0.7,
+        margin: "15px",
+        height: "auto",
+        width: "100%",
+        display: "inline-block"
+      }
+    });  
+    if (im_is_quiz) {
+      im_next();		
+    }
+    /**
+     * END OF ON-READY IMAGE MAPS.
+     */
+     
     /**
      * ON-READY:  ALL SORTABLE.
      */
@@ -563,5 +597,100 @@
 
   /**
    * END OF FLASHCARDS.
+   */
+  /**
+   * IMAGE MAPS.
+   */
+  var im_completed = -1;
+  $("area.heymarbet_map_area").on('click', function() {
+    var a = document.getElementsByClassName("image_map_audio");
+    var this_audio = document.getElementById($(this).attr("data-title") + "_audio");
+    
+    if (im_is_quiz) {
+      var answer = image_map_questions[im_index].a;
+      var selection = $(this).attr("data-title");
+ 	  if (selection == answer && !$(this).hasClass("played")) {
+ 	    this_audio.play();
+ 	    $(this).addClass("played");
+ 	    if (im_index + 1 < image_map_questions.length) {
+ 	      $(".im_next").attr("disabled", false);
+ 	    } else if (im_completed != image_map_questions.length-1) {
+          dialog = $('.dialog').first();
+          dialog.dialog("open");
+          im_completed = true;
+ 	    }
+ 	    if (im_index > im_completed) {
+ 	      im_completed = im_index;
+ 	    }
+ 	  } else if (selection== answer && $(this).hasClass("played")) { 
+ 	    this_audio.pause();
+        this_audio.currentTime = 0;
+        $(this).removeClass("played");
+ 	  } else {
+ 	    $("area.heymarbet_map_area").removeClass("played");
+ 	    for (var i = 0; i < a.length; i++) {
+          if (!a[i].paused) {
+            a[i].pause();
+            a[i].currentTime = 0;
+        }
+    }
+ 	  }
+ 	  return 0;
+    } 
+    for (var i = 0; i < a.length; i++) {
+      if (!a[i].paused && a[i] != this_audio) {
+        a[i].pause();
+        a[i].currentTime = 0;
+      }
+    }
+     
+    if (this_audio.paused && !$(this).hasClass("played")) {
+      this_audio.play();
+      $("area.heymarbet_map_area").removeClass("played");
+      $(this).addClass("played");
+    } else {
+      this_audio.pause();
+      this_audio.currentTime = 0;
+      $(this).removeClass("played");
+    }
+  });
+  
+  $(".im_next").click(function () {
+    im_next();
+  });
+  
+  $(".im_prev").click(function () {
+    im_prev();
+  });
+  
+  function im_next() {
+    if (++im_index < image_map_questions.length) {
+      $("h3.image_map_caption").html(image_map_questions[im_index].q);
+      if (im_index <= im_completed && im_index + 1 < image_map_questions.length) {
+        $(".im_next").attr("disabled", false);
+      } else {
+        $(".im_next").attr("disabled", true);
+      }
+
+    }
+    if (im_index > 0) {
+      $(".im_prev").attr("disabled", false);
+    } else {
+      $(".im_prev").attr("disabled", true);
+    }
+  }   
+  function im_prev() {
+    if (--im_index >= 0) {
+      $("h3.image_map_caption").html(image_map_questions[im_index].q);
+      $(".im_next").attr("disabled", false);
+    }
+    if (im_index > 0) {
+      $(".im_prev").attr("disabled", false);
+    } else {
+      $(".im_prev").attr("disabled", true);
+    }
+  }  
+   /**
+   * END OF IMAGE MAPS.
    */
 })(jQuery);
